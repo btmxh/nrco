@@ -1,0 +1,7 @@
+%game_developer%: Ngô Duy Anh, Ngô Hà Linh
+
+%programming_language%: Java
+
+%dependencies%: Lightweight Java Game Library (%lwjgl%), minimal-json (%json_parser%)
+
+%music%: Điều đó phụ thuộc hành động của bạn (Max Benderz Bootleg)
