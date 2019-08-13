@@ -6,7 +6,6 @@
 package nrco.states;
 
 import com.lwjglwrapper.LWJGL;
-import com.lwjglwrapper.nanovg.NVGGraphics;
 import com.lwjglwrapper.utils.IColor;
 import com.lwjglwrapper.utils.geom.PaintedShape;
 import com.lwjglwrapper.utils.geom.shapes.RoundRect;
@@ -27,11 +26,12 @@ public class CompleteState extends IState{
     
     public Screenshot levelScreenshot;
     private Stage stage;
+    private IButton close;
 
     public CompleteState(MainGame game) {
         super(game);
         stage = new Stage(LWJGL.window, LWJGL.graphics);
-        IButton close = new IButton(stage, RectUtils.center(LWJGL.window.getWidth() / 2, LWJGL.window.getHeight() / 2 + 150, 300, 100), game.format("%close%"), IColor.RED);
+        close = new IButton(stage, RectUtils.center(LWJGL.window.getWidth() / 2, LWJGL.window.getHeight() / 2 + 150, 300, 100), game.format("%close%"), IColor.RED);
         close.setOnClickListener((s, b, m) -> game.setState(game.levelState));
     }
 
@@ -92,6 +92,10 @@ public class CompleteState extends IState{
 
     @Override
     public void dispose() {
+    }
+    
+    public void reset() {
+        close.setText(game.format("%close%"));
     }
     
 }
